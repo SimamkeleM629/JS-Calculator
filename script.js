@@ -24,7 +24,7 @@ function appendToDisplay(value) {
         // Get the last number in the display
         let lastNumber = currentValue.split(/[\+\-\*\/]/).pop();
         // only add the decimal if the current number doesn't have one
-        if (lastNumber.includes('.')) {
+        if (!lastNumber.includes('.')) {
             display.value = currentValue + value;
         }
     } else {
@@ -44,7 +44,7 @@ function clearDisplay() {
     display.value = '0';
     justcalculated = false; 
 
-    display.style.backgroundColor = #f0f0f0; 
+    display.style.backgroundColor = '#f0f0f0'; 
     setTimeout(() => {
     display.style.backgroundColor = ''; 
     }, 150);
