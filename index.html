@@ -17,39 +17,36 @@
          <table>
          <div class="buttons">
             <!-- First Row -->
-           <tr> 
-                <td><button class="btn clear" onclick="clearDisplay()">AC</button></td>
-                <td><button class="btn operator" onclick="deleteLast()">DEL</button></td>
-                <td><button class="btn operator" onclick="appendToDisplay('/')">÷</button></td>
-                <td><button class="btn operator" onclick="appendToDisplay('*')">x</button></td>
-            </tr> 
+           
+                <button class="btn clear" onclick="clearDisplay()">AC</button>
+                <button class="btn operator" onclick="deleteLast()">DEL</button>
+                <button class="btn operator" onclick="appendToDisplay('/')">÷</button>
+                <button class="btn operator" onclick="appendToDisplay('*')">x</button>
+            
             <!-- Second Row -->
-            <tr>
-                <td><button class="btn number" onclick="appendToDisplay('7')">7</button></td>
-                <td><button class="btn number" onclick="appendToDisplay('8')">8</button></td>
-                <td><button class="btn number" onclick="appendToDisplay('9')">9</button></td>
-                <td><button class="btn operator" onclick="appendToDisplay('-')">-</button></td>
-             </tr> 
+            
+                <button class="btn number" onclick="appendToDisplay('7')">7</button>
+                <button class="btn number" onclick="appendToDisplay('8')">8</button>
+                <button class="btn number" onclick="appendToDisplay('9')">9</button>
+                <button class="btn operator" onclick="appendToDisplay('-')">-</button>
             <!-- Third Row -->
-             <tr>
-                <td><button class="btn number" onclick="appendToDisplay('4')">4</button></td>
-                <td><button class="btn number" onclick="appendToDisplay('5')">5</button></td>
-                <td><button class="btn number" onclick="appendToDisplay('6')">6</button></td>
-                <td><button class="btn operator" onclick="appendToDisplay('+')">+</button></td>
-            </tr>
+             
+                <button class="btn number" onclick="appendToDisplay('4')">4</button>
+                <button class="btn number" onclick="appendToDisplay('5')">5</button>
+                <button class="btn number" onclick="appendToDisplay('6')">6</button>
+                <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+            
             <!-- Fourth Row -->
-             <tr>
-                <td><button class="btn number" onclick="appendToDisplay('1')">1</button></td>
-               <td><button class="btn number" onclick="appendToDisplay('2')">2</button></td>
-               <td><button class="btn number" onclick="appendToDisplay('3')">3</button></td>
-               <td><button class="btn equals" onclick="calculate()" rowspan="2">=</button></td>
-            </tr>
+            <button class="btn number" onclick="appendToDisplay('1')">1</button>
+               <button class="btn number" onclick="appendToDisplay('2')">2</button>
+               <button class="btn number" onclick="appendToDisplay('3')">3</button>
+               <button class="btn equals" onclick="calculate()" rowspan="2">=</button>
             <!-- Fifth Row -->
-             <tr>
-                <td><button class="btn number zero" onclick="appendToDisplay('0')">0</button></td>
-                <td><button class="btn operator" onclick="appendToDisplay('%')">%</button></td>
-                <td><button class="btn number" onclick="appendToDisplay('.')">.</button></td>
-             </tr>
+             
+                <button class="btn number zero" onclick="appendToDisplay('0')">0</button>
+                <button class="btn operator" onclick="appendToDisplay('%')">%</button>
+                <button class="btn number" onclick="appendToDisplay('.')">.</button>
+             
         </table>
          </div>
     </div>
@@ -57,11 +54,6 @@
          <script src="script.js">
            
 
-         </script>
-
-
-
-
-    
+         </script> 
 </body>
 </html>
