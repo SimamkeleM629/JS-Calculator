@@ -12,6 +12,28 @@ function getLastCharacter() {
     return display.value.slice(-1);
 }
 
+function safeEval(expression) {
+    try {
+        let jsExpression = expression
+            .replace(/×/g, '*') // Replace multiplication symbol
+            .replace(/÷/g, '/'); // Replace division symbol
+
+        if (!/^[0-9+\-*/()]+$/.test(jsExpression)) {
+            throw new Error("Invalid characters in expression");
+        }
+
+        const result = Function('"use strict";return (' + jsExpression + ')')();
+
+        if (!isFinite(result)) {
+            throw new Error("Invalid calculation result");
+        }
+        return result;
+    } catch (error) {
+        console.error("calculation error:", error);
+        return 'Error';
+    }
+}
+
 function appendToDisplay(value) {
     console.log("Button pressed", value);
 
@@ -98,8 +120,39 @@ function deleteLast() {
 }
 
 function calculate() {
-    console.log("Equals button pressed");
+    let expression = display.value;
+
+    //Do not allow empty calculation or if display is just a 0
+    if (expression === '' || expression === '0') {
+        return;
+    }
+
+    //Do not calculate if the last character is an operator
+    if (isOperator(getLastCharacter())) {
+        return;
+    }
+
+    let result = safeEval(expression);
+
+    if (result === 'Error') {
+        display.value = 'Error';
+        setTimeout(() => {
+            clearDisplay();
+        }, 2000);
+    } else {
+        if (Number.isFinite(result)) {
+            display.value = result.toString();
+        } else {
+            display.value = parseFloat(result.toFixed(10)).toString();
+        }
+
+        justcalculated = true; // Set the flag to indicate a calculation was performed
+    }
     
+    display.style.backgroundColor = '#e8f5e9'; // Change background color to indicate calculation
+    setTimeout(() => {
+        display.style.backgroundColor = ''; // Reset background color after a short delay
+    }, 300);
 }
 document.addEventListener('keydown', function(event) {
     console.log("Key pressed:", event.key);
